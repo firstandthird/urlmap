@@ -1,0 +1,36 @@
+{
+  "name": "uris",
+  "version": "0.0.1",
+  "description": "Named routing library",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/firstandthird/uris.git"
+  },
+  "keywords": [
+    "express",
+    "routing",
+    "routes",
+    "named",
+    "urls"
+  ],
+  "author": "First + Third",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstandthird/uris/issues"
+  },
+  "homepage": "https://github.com/firstandthird/uris",
+  "devDependencies": {
+    "load-grunt-config": "~0.7.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-simple-mocha": "~0.4.0"
+  }
+}

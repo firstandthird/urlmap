@@ -1,0 +1,6 @@
+lib:
+  files:
+    - index.js
+    - test/*.js
+  task:
+    - default

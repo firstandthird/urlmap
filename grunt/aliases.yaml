@@ -1,0 +1,6 @@
+default:
+  - jshint
+  - simplemocha
+dev:
+  - simplemocha
+  - watch
