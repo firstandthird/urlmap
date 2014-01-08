@@ -1,11 +1,11 @@
 var assert = require('assert');
-var uris = require('../');
+var urlmap = require('../');
 
-suite('uris', function() {
+suite('urlmap', function() {
 
   var url;
   setup(function() {
-    url = uris({
+    url = urlmap({
       homepage: '/',
       dashboard: {
         _root: '/dashboard/',

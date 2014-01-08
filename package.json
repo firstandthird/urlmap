@@ -1,5 +1,5 @@
 {
-  "name": "uris",
+  "name": "urlmap",
   "version": "0.0.1",
   "description": "Named routing library",
   "main": "index.js",
