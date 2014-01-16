@@ -13,7 +13,14 @@ suite('urlmap', function() {
       },
       services: {
         _root: '/services/',
-        google: 'auth/google'
+        google: {
+          _root: 'google/',
+          auth: 'auth/'
+        },
+        twitter: {
+          _root: 'twitter/:key/',
+          auth: 'auth/'
+        }
       },
       user: '/users/:id?'
     });
@@ -47,6 +54,42 @@ suite('urlmap', function() {
     assert.throws(function() {
       url('dashboard.email', { blah: 123 });
     });
+
+  });
+
+  test('2nd level root route', function() {
+
+    assert.equal(url('services.google'), '/services/google/');
+
+  });
+
+  test('2nd level route', function() {
+
+    assert.equal(url('services.google.auth'), '/services/google/auth/');
+
+  });
+
+  test('2nd level root route with no data passed in', function() {
+
+    assert.equal(url('services.twitter'), '/services/twitter/:key/');
+
+  });
+
+  test('2nd level route with no data passed in', function() {
+
+    assert.equal(url('services.twitter.auth'), '/services/twitter/:key/auth/');
+
+  });
+
+  test('2nd level root route with data passed in', function() {
+
+    assert.equal(url('services.twitter', { key: '123' }), '/services/twitter/123/');
+
+  });
+
+  test('2nd level route with data passed in', function() {
+
+    assert.equal(url('services.twitter.auth', { key: '123' }), '/services/twitter/123/auth/');
 
   });
 
