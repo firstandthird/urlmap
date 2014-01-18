@@ -3,7 +3,7 @@ var urlmap = require('../');
 
 suite('urlmap', function() {
 
-  var url;
+  var url, url2;
   setup(function() {
     url = urlmap({
       homepage: '/',
@@ -23,6 +23,11 @@ suite('urlmap', function() {
         }
       },
       user: '/users/:id?'
+    });
+
+    url2 = urlmap({
+      _root: '/site/',
+      homepage: ''
     });
   });
 
@@ -108,6 +113,12 @@ suite('urlmap', function() {
   test('route with optional param and data', function() {
 
     assert.equal(url('user', { id: '123' }), '/users/123');
+
+  });
+
+  test('_root on top level', function() {
+
+    assert.equal(url2('homepage'), '/site/');
 
   });
 
