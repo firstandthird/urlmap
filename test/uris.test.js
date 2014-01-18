@@ -22,6 +22,8 @@ suite('urlmap', function() {
           auth: 'auth/'
         }
       },
+      invite: '/invite/:invite_id',
+      invite2: '/invite/:invite_id?',
       user: '/users/:id?'
     });
   });
@@ -108,6 +110,24 @@ suite('urlmap', function() {
   test('route with optional param and data', function() {
 
     assert.equal(url('user', { id: '123' }), '/users/123');
+
+  });
+
+  test('query string single', function() {
+
+    assert.equal(url('invite', { invite_id: '1234'}, {ref: 'twitter'}), '/invite/1234?ref=twitter');
+
+  });
+
+  test('query string multiple', function() {
+
+    assert.equal(url('invite', { invite_id: '1234'}, {ref: 'twitter', client: '002'}), '/invite/1234?ref=twitter&client=002');
+
+  });
+
+  test('query string when path ends with ?', function() {
+
+    assert.equal(url('invite2', { invite_id: '1234'}, {ref: 'twitter', client: '002'}), '/invite/1234?ref=twitter&client=002');
 
   });
 

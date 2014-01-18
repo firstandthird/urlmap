@@ -32,10 +32,11 @@ module.exports = function(urls) {
     }
   }
 
-  return function(url, data) {
+  return function(url, data, query) {
     var parts = url.split('.');
     var path = buildPath(parts);
-    var field, value, re, matches, i, c;
+    var field, value, re, matches, i, c, qs;
+    var queryString = [];
 
     if(typeof data === 'object') {
       for(field in data) {
@@ -51,6 +52,16 @@ module.exports = function(urls) {
 
       // Clean up any stragglers
       path = path.replace(/\:.+\?\/?/, '');
+    }
+
+    if(typeof query === 'object') {
+      for(qs in query) {
+        queryString.push(qs + '=' + query[qs]);
+      }
+    }
+
+    if(queryString.length) {
+      path += (path.indexOf('?') !== path.length - 1 ? '?' : '&') + queryString.join('&');
     }
 
     return path;
