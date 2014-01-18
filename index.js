@@ -3,7 +3,7 @@ module.exports = function(urls) {
 
   function buildPath(parts, depth, path, _urls) {
     depth = depth || 0;
-    path = path || '';
+    path = path || urls._root || '';
     _urls = _urls || urls;
 
     var pathBit = parts[depth];
